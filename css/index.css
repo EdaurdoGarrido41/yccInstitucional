@@ -10,3 +10,36 @@
     /*color: #33afdb;
     background-color: #33afdb20;*/
 }
+
+.hero-image {
+    background-image: url("../imagenes/banner_1.jpeg");
+    background-color: #cccccc;
+    height: 500px;
+    background-position: left;
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    position: relative;
+}
+
+.hero-text {
+    text-align: left;
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    /* color: #069fd5; */
+}
+
+.texto-principal{
+    color: #0078d4;
+}
+.texto-principal-op{
+    color: #4da8da;
+}
+
+.texto-secundario{
+    color: #7f3fbf;
+}
+.texto-secundario-op{
+    color: #b980ff;
+}
