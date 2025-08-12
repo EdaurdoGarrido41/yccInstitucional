@@ -1,0 +1,12 @@
+/* NAVVAR */
+.nav-link{
+    color:#7F3FBF;
+    /*color:#292168;*/
+}
+.nav-link:focus, 
+.nav-link:hover{
+    color: #0078D4;
+    background-color: #0078D420;
+    /*color: #33afdb;
+    background-color: #33afdb20;*/
+}

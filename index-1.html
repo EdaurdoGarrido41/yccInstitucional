@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RRHH Your Call Center | Telecomunicaciones</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2ea3f2;
+            --secondary-color: #333;
+            --text-color: #666;
+            --light-bg: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 1px 0 rgba(0,0,0,.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+        }
+        
+        .nav-link {
+            color: rgba(0,0,0,0.6);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            font-size: 14px;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .hero-section {
+            background: url('https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/call-center-hero.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 120px 0;
+            position: relative;
+            color: white;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 500;
+            border-radius: 3px;
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 500;
+            border-radius: 3px;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .service-box {
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            height: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .client-logo {
+            height: 60px;
+            margin: 15px;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+        
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-links h5 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .social-icons a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            color: #aaa;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/logo-your-call-center.png" alt="RRHH Your Call Center">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary" href="#">
+                            <i class="fas fa-phone-alt me-2"></i> Contáctanos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row hero-content">
+                <div class="col-lg-7">
+                    <h1 class="display-4 fw-bold mb-4">Soluciones de RRHH para Call Centers</h1>
+                    <p class="lead mb-4">Expertos en reclutamiento, capacitación y gestión de talento humano para el sector de contact centers.</p>
+                    <a href="#" class="btn btn-primary btn-lg me-3">Nuestros Servicios</a>
+                    <a href="#" class="btn btn-outline-primary btn-lg">Contáctanos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="lead">Soluciones especializadas para la gestión de talento en call centers</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Reclutamiento y Selección</h3>
+                        <p>Proceso especializado para identificar y seleccionar el mejor talento para puestos en call centers.</p>
+                        <a href="#" class="btn btn-link p-0">Más información <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>Capacitación Especializada</h3>
+                        <p>Programas de formación para agentes, supervisores y gerentes de call centers.</p>
+                        <a href="#" class="btn btn-link p-0">Más información <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Evaluación de Desempeño</h3>
+                        <p>Sistemas de medición y seguimiento del rendimiento de los agentes.</p>
+                        <a href="#" class="btn btn-link p-0">Más información <i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/nosotros-call-center.jpg" alt="Sobre Nosotros" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sobre Nosotros</h2>
+                    <p>RRHH Your Call Center es una empresa especializada en soluciones de recursos humanos para el sector de contact centers y BPO.</p>
+                    <p>Con más de 10 años de experiencia en el mercado, hemos desarrollado metodologías específicas para la gestión de talento en este sector tan particular.</p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white rounded-circle p-3 me-3">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h4 class="mb-0">+500</h4>
+                                    <p class="mb-0">Agentes colocados</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white rounded-circle p-3 me-3">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div>
+                                    <h4 class="mb-0">+50</h4>
+                                    <p class="mb-0">Clientes satisfechos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Testimonios</h2>
+                <p class="lead">Lo que dicen nuestros clientes</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <i class="fas fa-quote-left text-primary fs-1"></i>
+                        </div>
+                        <p class="mb-4">"Gracias a RRHH Your Call Center hemos reducido nuestra rotación de personal en un 40% y mejorado la calidad de nuestros agentes."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/testimonio-1.jpg" alt="Cliente 1" class="rounded-circle me-3" width="50">
+                            <div>
+                                <h6 class="mb-0">Juan Pérez</h6>
+                                <small class="text-muted">Director de Operaciones, CallTech</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <i class="fas fa-quote-left text-primary fs-1"></i>
+                        </div>
+                        <p class="mb-4">"Los programas de capacitación han sido fundamentales para mejorar nuestros indicadores de servicio al cliente."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/testimonio-2.jpg" alt="Cliente 2" class="rounded-circle me-3" width="50">
+                            <div>
+                                <h6 class="mb-0">María González</h6>
+                                <small class="text-muted">Gerente de RRHH, Contact Solutions</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="mb-3">
+                            <i class="fas fa-quote-left text-primary fs-1"></i>
+                        </div>
+                        <p class="mb-4">"El proceso de reclutamiento especializado nos ha permitido reducir tiempos y costos en la selección de agentes."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/testimonio-3.jpg" alt="Cliente 3" class="rounded-circle me-3" width="50">
+                            <div>
+                                <h6 class="mb-0">Carlos Rodríguez</h6>
+                                <small class="text-muted">Director General, BPO Connect</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nuestros Clientes</h2>
+                <p class="lead">Empresas que confían en nuestros servicios</p>
+            </div>
+            
+            <div class="row justify-content-center align-items-center">
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/cliente-1.png" alt="Cliente 1" class="img-fluid client-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/cliente-2.png" alt="Cliente 2" class="img-fluid client-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/cliente-3.png" alt="Cliente 3" class="img-fluid client-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/cliente-4.png" alt="Cliente 4" class="img-fluid client-logo">
+                </div>
+                <div class="col-6 col-md-2 text-center">
+                    <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/cliente-5.png" alt="Cliente 5" class="img-fluid client-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container py-5 text-center">
+            <h2 class="display-5 fw-bold mb-4">¿Listo para optimizar tu equipo de call center?</h2>
+            <p class="lead mb-5">Contáctanos hoy mismo y descubre cómo podemos ayudarte a mejorar tu operación</p>
+            <a href="#" class="btn btn-light btn-lg me-3">
+                <i class="fas fa-phone-alt me-2"></i> Llamar ahora
+            </a>
+            <a href="#" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-envelope me-2"></i> Enviar mensaje
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <img src="https://rrhh.yourcallcenter.online/wp-content/uploads/2023/07/logo-your-call-center-white.png" alt="RRHH Your Call Center" class="mb-3" height="40">
+                    <p class="mb-4">Especialistas en soluciones de recursos humanos para el sector de contact centers y BPO.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-links">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Reclutamiento</a></li>
+                        <li><a href="#">Capacitación</a></li>
+                        <li><a href="#">Evaluación</a></li>
+                        <li><a href="#">Outsourcing</a></li>
+                        <li><a href="#">Consultoría</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-links">Empresa</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Equipo</a></li>
+                        <li><a href="#">Clientes</a></li>
+                        <li><a href="#">Testimonios</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-links">Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Términos</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-12">
+                    <h5 class="footer-links">Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Av. Principal 123, Lima</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +51 123 456 789</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@rrhhyourcallcenter.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row copyright">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">© 2023 RRHH Your Call Center. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Desarrollado por <a href="#" class="text-white">Your Call Center</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
