@@ -28,3 +28,8 @@
 .texto-secundario{
     color: #0049ad;
 }
+
+.card-img-top {
+    height: 200px;        /* Alto fijo de la imagen */
+    object-fit: cover;    /* Recorta y centra la imagen */
+}
