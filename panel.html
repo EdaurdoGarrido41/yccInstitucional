@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Master sales</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="icon" href="./favicon.ico">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid d-flex align-items-center justify-content-between">
+                <!-- Logo -->
+                <a class="navbar-brand mb-0" href="#">
+                    <img src="./imagenes/logo-color.png" alt="Your Call Center" width="70" class="img-fluid">
+                </a>
+
+                <!-- Botón hamburguesa -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Menú -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">VIEW ALL</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div>
+
+            <div class="container mt-4">
+                <h2 class="mb-4">Lista de Autos Publicados</h2>
+
+                <!-- Buscador -->
+                <div class="mb-3">
+                    <input type="text" id="buscador" class="form-control" placeholder="Buscar por VIN, Stock o Título...">
+                </div>
+
+                <div id="contenedor-autos">
+                <!-- Aquí se cargará la tabla -->
+                </div>
+            </div>
+
+            <!-- #region Footer -->
+            <footer class="text-center text-white mt-5" style="background-color: #f1f1f1;">
+                <!-- Grid container -->
+                <div class="container py-4">
+                    <div class="row">
+                        <div class="col-sm-4 text-center align-self-center">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <p class="text-dark">
+                                        <em>
+                                            <i class="fa-solid fa-phone"></i> (407) 412-8335
+                                        </em>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p class="text-dark">
+                                        <em>
+                                            <i class="fa-solid fa-envelope"></i> ventas@yourcallcentar.online
+                                        </em>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-sm-4 align-self-center">
+                            <section class="mb-4">
+                                <!-- Facebook -->
+                                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.facebook.com/lifeinsuranceforeverdarian/" role="button" data-mdb-ripple-color="dark">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+            
+                                <!-- Instagram -->
+                                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://www.instagram.com/darianm1997/?igsh=NWhkczh4eTJ6bmM5URL" role="button" data-mdb-ripple-color="dark">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+
+                                <!-- X -->
+                                <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="https://twitter.com/MoreiraDarian?s=09URL" role="button" data-mdb-ripple-color="dark">
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                </a>
+                            </section>
+                        </div>
+
+                        <div class="col-sm-4 align-self-center">
+                            <div class="row">
+                                <div class="col-sm text-center">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <p>
+                                                <em>
+                                                    <a class="text-dark m-1" href="politica-privacidad.html">
+                                                        Política de privacidad
+                                                    </a>
+                                                </em>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <em>
+                                                    <a class="text-dark m-1" href="politica-cookies.html">
+                                                        Política de cookies
+                                                    </a>
+                                                </em>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p>
+                                                <em>
+                                                    <a class="text-dark m-1" href="derechos-reservado.html">
+                                                        Derechos reservados
+                                                    </a>
+                                                </em>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grid container -->
+    
+                <!-- Copyright -->
+                <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2025 Copyright:
+                    <a class="text-dark" href="https://rrhh.yourcallcenter.online/">Your call center</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+            <!-- #endregion Footer -->
+
+        </div>
+
+        <script src="https://kit.fontawesome.com/2a3f5737fa.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
+        <script>
+            // Cargar lista de autos
+            function cargarAutos(busqueda = "") {
+            fetch("listar_autos.php?busqueda=" + encodeURIComponent(busqueda))
+                .then(res => res.text())
+                .then(html => {
+                document.getElementById("contenedor-autos").innerHTML = html;
+
+                // Eventos de los botones
+                document.querySelectorAll(".btn-ocultar").forEach(btn => {
+                    btn.addEventListener("click", () => actualizarEstatus(btn.dataset.vin, 0, busqueda));
+                });
+
+                document.querySelectorAll(".btn-mostrar").forEach(btn => {
+                    btn.addEventListener("click", () => actualizarEstatus(btn.dataset.vin, 1, busqueda));
+                });
+                });
+            }
+
+            // Actualizar estatus en BD
+            function actualizarEstatus(vin, estatus, busqueda = "") {
+                fetch("actualizar_estatus.php", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: "vin=" + encodeURIComponent(vin) + "&estatus=" + estatus
+                })
+                .then(res => res.text())
+                .then(resp => {
+                    console.log(resp);
+                    cargarAutos(busqueda); // recargar lista
+                });
+            }
+
+            // Evento del buscador
+            document.getElementById("buscador").addEventListener("input", function() {
+                cargarAutos(this.value);
+            });
+
+            // Cargar al inicio
+            cargarAutos();
+        </script>
+    </body>
+</html>
