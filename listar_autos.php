@@ -20,7 +20,7 @@
                 OR stock LIKE '%$busqueda%'";
     }
 
-    $sql = "SELECT vin, stock, titulo, imagen, activado 
+    $sql = "SELECT id, vin, stock, titulo, imagen, activado 
             FROM catalogo_motors $where";
     $result = $conn->query($sql);
 
@@ -58,6 +58,9 @@
                             <i class="bi bi-eye"></i> Mostrar
                         </button>';
                     }
+
+                    // Botón Modificar
+                    echo "<a href='editar_auto.php?id=".$row['id']."' class='btn btn-info btn-sm'>Modificar</a>";
 
                     echo '</td>
                 </tr>';
