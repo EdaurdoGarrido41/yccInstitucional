@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <label class="form-label">Imagen</label>
+                        <label class="form-label">Imagen principal</label>
                         <input type="file" name="imagen" class="form-control" accept="image/*">
                         <small class="text-muted">El archivo se guardará con el nombre del VIN.</small>
                     </div>

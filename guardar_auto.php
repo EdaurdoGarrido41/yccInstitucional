@@ -3,21 +3,18 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-
     // Conexión a la base de datos
-    $host = "localhost"; 
-    $user = "u676669933_catalogo"; 
-    $pass = "Mastersales2025"; 
-    $db   = "u676669933_mastersales"; 
+    $host = "localhost";
+    $user = "u676669933_catalogo";
+    $pass = "Mastersales2025";
+    $db   = "u676669933_mastersales";
 
     $conn = new mysqli($host, $user, $pass, $db);
-    if ($conn->connect_error) {
-        die("Error de conexión: " . $conn->connect_error);
-    }
+    if ($conn->connect_error) die("Error de conexión: " . $conn->connect_error);
 
-    // Obtener datos del formulario
-    $vin            = $_POST['vin'];
-    $stock          = $_POST['stock'];
+    // Obtener y validar datos del formulario
+    $vin            = trim($_POST['vin'] ?? '');
+    $stock          = trim($_POST['stock'] ?? '');
     $titulo         = $_POST['titulo'] ?? '';
     $exterior       = $_POST['exterior'] ?? '';
     $interior       = $_POST['interior'] ?? '';
@@ -30,59 +27,68 @@
     $model          = $_POST['model'] ?? '';
     $year           = $_POST['year'] ?? '';
 
-    // Validar obligatorios
-    if (empty($vin) || empty($stock)) {
-        die("Error: VIN y Stock son obligatorios.");
-    }
+    // Validar campos obligatorios
+    if ($vin === '' || $stock === '') die("Error: VIN y Stock son obligatorios.");
 
-    // Manejo de imagen
-    $nombreImagen = ""; // valor por defecto
+    // Manejo de imagen principal
+    $nombreImagen = "";
     if (!empty($_FILES['imagen']['tmp_name'])) {
-
-        $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION); // obtener extensión original
-        $nombreImagen = $vin . "." . $extension; // renombrar con VIN y conservar extensión
-
-        $rutaDestino = "mastersales-inventario/" . $nombreImagen;
-        move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaDestino);
-    } else {
-        $nombreImagen = ""; // Si no se sube imagen
+        $ext = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
+        if ($ext) {
+            $nombreImagen = $vin . "." . $ext;
+            $rutaDestino = "mastersales-inventario/" . $nombreImagen;
+            if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaDestino)) {
+                die("Error al subir la imagen principal.");
+            }
+        }
     }
 
-    // Insertar en la BD
+    // Insertar vehículo en catalogo_motors
     $sql = "INSERT INTO catalogo_motors 
-            (id, titulo, vin, stock, exterior, interior, drivetrain, transsmision, engine, fuel_efficiency, mileage, make, model, year, imagen, activado, date_registration)
-            VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, NOW())";
+    (id, titulo, vin, stock, exterior, interior, drivetrain, transsmision, engine, fuel_efficiency, mileage, make, model, year, imagen, activado, date_registration)
+    VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, NOW())";
 
     $stmt = $conn->prepare($sql);
-    if (!$stmt) {
-        die("Error en SQL: " . $conn->error);
-    }
-    $stmt->bind_param("sssssssssssssss",
-        $titulo, $vin, $stock, $exterior, $interior, $drivetrain,
-        $transsmision, $engine, $fuel_efficiency, $mileage,
-        $make, $model, $year, $nombreImagen
+    if (!$stmt) die("Error en SQL: " . $conn->error);
+
+    // bind_param seguro con 14 parámetros
+    $stmt->bind_param(
+        "ssssssssssssss",
+        $titulo,
+        $vin,
+        $stock,
+        $exterior,
+        $interior,
+        $drivetrain,
+        $transsmision,
+        $engine,
+        $fuel_efficiency,
+        $mileage,
+        $make,
+        $model,
+        $year,
+        $nombreImagen
     );
 
     if (!$stmt->execute()) die("Error al guardar vehículo: " . $stmt->error);
-
-    $idVehiculo = $stmt->insert_id; // ID del auto insertado
+    $idVehiculo = $stmt->insert_id;
     $stmt->close();
 
-    // Subir imágenes múltiples
+    // Subir imágenes múltiples si existen
     if (!empty($_FILES['imagenes']['tmp_name'][0])) {
-        $contador = 1;
         foreach ($_FILES['imagenes']['tmp_name'] as $key => $tmp_name) {
             $ext = pathinfo($_FILES['imagenes']['name'][$key], PATHINFO_EXTENSION);
-            $nombreImagen = $vin . "_" . $contador . "." . $ext;
-            $rutaDestino = "mastersales-inventario/" . $nombreImagen;
-            move_uploaded_file($tmp_name, $rutaDestino);
-
-            // Guardar en la tabla de imágenes
-            $stmtImg = $conn->prepare("INSERT INTO catalogo_motors_imagenes (id_vehiculo, nombre_imagen) VALUES (?, ?)");
-            $stmtImg->bind_param("is", $idVehiculo, $nombreImagen);
-            $stmtImg->execute();
-            $stmtImg->close();
-            $contador++;
+            if (!$ext) continue; // saltar si no tiene extensión
+            $nombreImg = $vin . "_" . ($key+1) . "." . $ext;
+            $rutaDestino = "mastersales-inventario/" . $nombreImg;
+            if (move_uploaded_file($tmp_name, $rutaDestino)) {
+                $stmtImg = $conn->prepare("INSERT INTO catalogo_motors_imagenes (id_vehiculo, nombre_imagen) VALUES (?, ?)");
+                if ($stmtImg) {
+                    $stmtImg->bind_param("is", $idVehiculo, $nombreImg);
+                    $stmtImg->execute();
+                    $stmtImg->close();
+                }
+            }
         }
     }
 
